@@ -7,7 +7,7 @@ defmodule Rumbl.Timeline.Post do
     field :likes_count, :integer, default: 0
     field :reposts_count, :integer, default: 0
     field :username, :string, virtual: true
-    field :user_id, :id, default: 1
+    belongs_to :user, Rumbl.User
 
     timestamps()
   end

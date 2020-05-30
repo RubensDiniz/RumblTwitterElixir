@@ -15,7 +15,7 @@ defmodule RumblWeb.PostLive.PostComponent do
               <br>
               <p><%= @post.body %></p>
             </div>
-          </div>
+          </div>get
   
           <div class="row actions_bar">
             <div class="column column-33 text-center">

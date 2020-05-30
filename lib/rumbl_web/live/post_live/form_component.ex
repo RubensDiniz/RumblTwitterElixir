@@ -41,7 +41,7 @@ defmodule RumblWeb.PostLive.FormComponent do
   end
 
   defp save_post(socket, :new, post_params) do
-    case Timeline.create_post(post_params) do
+    case Timeline.create_post(post_params, socket.assigns.current_user) do
       {:ok, _post} ->
         {:noreply,
          socket

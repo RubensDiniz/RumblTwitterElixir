@@ -1,13 +1,15 @@
 defmodule RumblWeb.PostLive.Index do
   use RumblWeb, :live_view
 
+  alias Rumbl.Repo
   alias Rumbl.Timeline
   alias Rumbl.Timeline.Post
 
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(_params, %{"user_id" => user_id}, socket) do
     #{:ok, assign(socket, :posts, list_posts())}
-
+    user = Repo.get(Rumbl.User, user_id)
+    socket = assign(socket, current_user: user)
     if connected?(socket), do: Timeline.subscribe()
     {:ok, assign(socket, :posts, list_posts()), temporary_assigns: [posts: []]}
   end
