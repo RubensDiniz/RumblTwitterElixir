@@ -88,8 +88,8 @@ defmodule Rumbl.Timeline do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_post(attrs \\ %{}) do
-    %Post{}
+  def create_post(attrs \\ %{}, %User{} = author) do
+    %Post{user_id: author.id}
     |> Post.changeset(attrs)
     |> Repo.insert()
     |> broadcast(:post_created)
