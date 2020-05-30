@@ -1,0 +1,17 @@
+<h1>Usuários</h1>
+
+<%=Phoenix.HTML.Link.link("[NOVO]", to: Routes.user_path(@conn, :new))%>
+
+<div class="container">
+    <table class="table table-hover">
+        <%= for user <- @users do%>
+        <tr>
+            <td><%= render "user.html", user: user %></td>
+            <td><%= link "View", to: Routes.user_path(@conn, :show, user.id) %></td>
+            <td>
+                <%= link "REMOVE", to: Routes.user_path(@conn, :delete, user), method: :delete, data: [confirm: "Remover?"] %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>

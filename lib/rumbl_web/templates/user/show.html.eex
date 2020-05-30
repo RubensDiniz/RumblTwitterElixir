@@ -1,0 +1,5 @@
+<h1>Detalhes de Usuários</h1>
+<%= render "user.html", user: @user%>
+
+<p></p>
+<%= Phoenix.HTML.Link.link("< LISTA", to: Routes.user_path(@conn, :index))%>

@@ -1,0 +1,23 @@
+<div id="users">
+    <div class="row">
+
+        <div class="column column-10">
+            <div class="post-avatar">
+                <img src="https://avatarfiles.alphacoders.com/103/103373.png" height="32" alt="<%= @user.username %>">
+            </div>
+        </div>
+
+        <div class="column column-90 post-body">
+            <b>ID: <%= @user.id %></b> <br/>
+            <b>First name: </b> <%= first_name(@user) %> <br/>
+            <b>Full name: </b> <%= @user.name %> <br/>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <b>Username: </b> <%= @user.username %>
+        </div>
+    </div>
+</div>
